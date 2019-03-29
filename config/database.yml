@@ -1,0 +1,21 @@
+---
+default: &default
+  adapter: postgresql
+  host: <%= ENV.fetch('DATABASE_HOST') { "localhost" }%>
+  port: <%= ENV['DATABASE_PORT'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: <%= ENV.fetch('DATABASE_TIMEOUT') { 5000 } %>
+
+development:
+  <<: *default
+  database: indexer_dev
+
+test:
+  <<: *default
+  database: indexer_test
+
+production:
+  <<: *default
+  database: indexer_prod
