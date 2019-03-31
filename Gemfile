@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.2'
+ruby "2.6.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+gem "rails", "~> 5.2.3"
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem "puma", "~> 3.11"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
@@ -18,36 +18,37 @@ gem 'puma', '~> 3.11'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem "bootsnap", ">= 1.1.0", require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
-gem 'pg'
+gem "pg"
 
-gem 'jsonapi-resources'
+gem "jsonapi-resources"
+gem "nokogiri"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem "byebug", platforms: %i[mri mingw x64_mingw]
 
   gem "dotenv-rails"
 
-  gem 'awesome_print'
-  gem 'pry-rails'
-  gem 'simplecov'
-  gem 'solargraph'
+  gem "awesome_print"
+  gem "pry-rails"
+  gem "simplecov"
+  gem "solargraph"
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem "listen", ">= 3.0.5", "< 3.2"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "spring"
+  gem "spring-watcher-listen", "~> 2.0.0"
 
-  gem 'brakeman'
-  gem 'rubocop'
+  gem "brakeman"
+  gem "rubocop"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
