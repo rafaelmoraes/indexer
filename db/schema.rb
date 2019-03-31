@@ -16,20 +16,20 @@ ActiveRecord::Schema.define(version: 2019_03_29_185743) do
   enable_extension "plpgsql"
 
   create_table "headers", force: :cascade do |t|
-    t.bigint "site_id"
+    t.bigint "webpage_id"
     t.string "tag", limit: 9, null: false
     t.string "text", default: "", null: false
     t.string "link", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["site_id"], name: "index_headers_on_site_id"
+    t.index ["webpage_id"], name: "index_headers_on_webpage_id"
   end
 
-  create_table "sites", force: :cascade do |t|
+  create_table "webpages", force: :cascade do |t|
     t.string "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "headers", "sites"
+  add_foreign_key "headers", "webpages"
 end

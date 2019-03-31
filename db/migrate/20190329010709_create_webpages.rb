@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateSites < ActiveRecord::Migration[5.2]
+class CreateWebpages < ActiveRecord::Migration[5.2]
   def change
-    create_table :sites do |t|
+    create_table :webpages do |t|
       t.string :url, null: false
 
       t.timestamps

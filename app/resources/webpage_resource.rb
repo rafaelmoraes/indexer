@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SiteResource < JSONAPI::Resource
+class WebpageResource < JSONAPI::Resource
   attributes :url
 
   has_many :headers

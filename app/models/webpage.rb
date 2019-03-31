@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Site < ApplicationRecord
+class Webpage < ApplicationRecord
   validates :url, presence: true
 
   has_many :headers

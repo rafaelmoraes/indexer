@@ -5,8 +5,8 @@ require "test_helper"
 class HeaderTest < ActiveSupport::TestCase
   test "should belongs to site" do
     header = Header.new
-    assert_respond_to header, :site_id
-    assert_respond_to header, :site
+    assert_respond_to header, :webpage_id
+    assert_respond_to header, :webpage
   end
 
   test "should validate presence of tag and link" do
@@ -22,7 +22,7 @@ class HeaderTest < ActiveSupport::TestCase
   test "should be invalid if tag is different of h1, h2, h3" do
     header = Header.new text: "A page title",
                         link: "https://google.com",
-                        site: sites(:google)
+                        webpage: webpages(:google)
     %w[h1 h2 h3].each do |tag_type|
       header.tag = tag_type
       header.valid?
