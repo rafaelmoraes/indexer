@@ -12,4 +12,10 @@ class SiteTest < ActiveSupport::TestCase
   test "should has many headers" do
     assert_respond_to Site.new, :headers
   end
+
+  test "should has an error Url not found" do
+    s = Site.new url: "https://asdf.coomm"
+    s.send :index_and_create_headers
+    assert_equal "not found", s.errors[:url].first
+  end
 end
