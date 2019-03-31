@@ -4,7 +4,7 @@ class CreateHeaders < ActiveRecord::Migration[5.2]
   def change
     create_table :headers do |t|
       t.references :site, foreign_key: true
-      t.string :tag, limit: 2, null: false
+      t.string :tag, limit: 9, null: false
       t.string :text, null: false
       t.string :link, null: false
 
