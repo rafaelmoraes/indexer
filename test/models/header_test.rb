@@ -9,12 +9,13 @@ class HeaderTest < ActiveSupport::TestCase
     assert_respond_to header, :site
   end
 
-  test "should validate presence of all attributes" do
-    header = Header.new tag: "", text: nil, link: ""
-    %i[tag text link].each do |attribute|
+  test "should validate presence of tag and link" do
+    header = Header.new tag: "", link: ""
+    %i[tag link].each do |attribute|
       assert_not header.valid?
-      assert_equal "#{attribute.capitalize} when does not exist must be: #{Header::NOT_FOUND}",
-                   header.errors[attribute].first
+      assert_equal "can't be blank",
+                   header.errors[attribute].first,
+                   "attribute: #{attribute}"
     end
   end
 

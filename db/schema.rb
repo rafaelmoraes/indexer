@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_03_29_185743) do
   create_table "headers", force: :cascade do |t|
     t.bigint "site_id"
     t.string "tag", limit: 9, null: false
-    t.string "text", null: false
+    t.string "text", default: "", null: false
     t.string "link", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
