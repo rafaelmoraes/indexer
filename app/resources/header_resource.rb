@@ -3,5 +3,4 @@
 class HeaderResource < JSONAPI::Resource
   attributes :tag, :text, :link
   has_one :webpage
-  filter :webpage
 end
