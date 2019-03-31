@@ -28,6 +28,8 @@ class WebpageParser
   private
     def extract_indexable(nokogiri_node)
       anchor = nokogiri_node.css("a").first
+      # I know that instructions say just 'inside', \
+      # but many sites anchor as the parent, so I did that.
       anchor = nokogiri_node.parent if anchor.nil?
       {
         tag: nokogiri_node.name,
