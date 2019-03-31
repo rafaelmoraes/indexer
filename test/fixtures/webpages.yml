@@ -1,7 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+---
 google:
   url: "https://google.com"
-
-always_invalid:
-  url: ""
