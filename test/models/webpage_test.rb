@@ -14,8 +14,8 @@ class WebpageTest < ActiveSupport::TestCase
   end
 
   test "should has an error Url not found" do
-    page = Webpage.new url: "https://asdf.coomm/"
-    page._run_create_callbacks
-    assert_equal "not found", page.errors[:url].first
+    page = Webpage.create url: "https://asdf.coomm/"
+    assert_not page.valid?
+    assert_equal "can't be found", page.errors[:url].first
   end
 end
