@@ -20,8 +20,7 @@
 /config/master.key
 
 
-docker-compose.yml
+dev-docker-compose.yml
 *.dockerfile
-Dockerfile
 .docker_volumes
 coverage
