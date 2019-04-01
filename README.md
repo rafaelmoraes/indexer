@@ -1,5 +1,7 @@
 ## Setup
 
+    If something does not work, please let me know.
+
 1 - Install [Docker](https://docs.docker.com/install/)
 
 2 - Install [Docker compose](https://docs.docker.com/compose/install/)
@@ -14,9 +16,11 @@ sudo systemctl start docker
 4 - Run on console
 
 ```shellscript
-docker-compose up -d #Maybe you need to use sudo
+#Maybe you need to use sudo
+docker-compose up -d
 docker-compose exec rails bash
 ```
+
 Now you should be inside the rails docker container
 
 5 - Create the database
