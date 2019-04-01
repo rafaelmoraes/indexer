@@ -1,24 +1,48 @@
-# README
+#Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1 - Install [Docker](https://docs.docker.com/install/)
+2 - Install [Docker compose](https://docs.docker.com/compose/install/)
+3 - Start the docker daemon
 
-Things you may want to cover:
+```shellscript
+# example using the systemd
+sudo systemctl start docker
+```
 
-* Ruby version
+4 - Run on console
 
-* System dependencies
+```shellscript
+docker-compose up -d #Maybe you need to use sudo
+docker-compose exec rails bash
+```
+Now you should be inside the rails docker container
 
-* Configuration
+5 - Create the database
 
-* Database creation
+ ```shellscript
+rails db:create db:migrate
+ ```
 
-* Database initialization
+6 - Run the rails server
 
-* How to run the test suite
+ ```shellscript
+rails s -b 0.0.0.0
+ ```
 
-* Services (job queues, cache servers, search engines, etc.)
+7 - Open your browser and access http://localhost:3000, you should see the rails default page
 
-* Deployment instructions
+#Testing using curl
 
-* ...
+```shellscript
+# Create
+curl -i -H "Accept: application/vnd.api+json" -H 'Content-Type:application/vnd.api+json' -X POST -d '{"data": {"type":"webpages", "attributes":{"url":"https://www.bbc.co.uk/"}}}' http://localhost:3000/webpages
+
+# Get all
+curl -i -H "Accept: application/vnd.api+json" -H 'Content-Type:application/vnd.api+json' -X GET http://localhost:3000/webpages
+
+# Get all headers indexed from webpage ID 1
+curl -i -H "Accept: application/vnd.api+json" -H 'Content-Type:application/vnd.api+json' -X GET http://localhost:3000/webpages/1/headers
+
+# Error
+curl -i -H "Accept: application/vnd.api+json" -H 'Content-Type:application/vnd.api+json' -X POST -d '{"data": {"type":"webpages", "attributes":{"url":""}}}' http://localhost:3000/webpages
+```
