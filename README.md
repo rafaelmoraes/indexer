@@ -1,7 +1,9 @@
 # Setup
 
 1 - Install [Docker](https://docs.docker.com/install/)
+
 2 - Install [Docker compose](https://docs.docker.com/compose/install/)
+
 3 - Start the docker daemon
 
 ```shellscript
