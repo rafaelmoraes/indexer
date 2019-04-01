@@ -1,0 +1,35 @@
+---
+version: "3"
+
+networks:
+  indexer-network:
+    driver: bridge
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: "indexer@@@"
+    volumes:
+      - .docker_volumes/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - indexer-network
+
+  rails:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: "rmoraes/indexer"
+    volumes:
+      - .:/development
+    ports:
+      - 3000:3000
+    networks:
+      - indexer-network
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
