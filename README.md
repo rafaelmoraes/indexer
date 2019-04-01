@@ -12,8 +12,14 @@
 # example using the systemd
 sudo systemctl start docker
 ```
+4 - Clone the project
 
-4 - Run on console
+```shellscript
+git clone https://github.com/rafaelmoraes/indexer
+cd indexer
+```
+
+5 - Run on console
 
 ```shellscript
 #Maybe you need to use sudo
@@ -23,19 +29,19 @@ docker-compose exec rails bash
 
 Now you should be inside the rails docker container
 
-5 - Create the database
+6 - Create the database
 
  ```shellscript
 rails db:create db:migrate
  ```
 
-6 - Run the rails server
+7 - Run the rails server
 
  ```shellscript
 rails s -b 0.0.0.0
  ```
 
-7 - Open your browser and access http://localhost:3000, you should see the rails default page
+8 - Open your browser and access http://localhost:3000, you should see the rails default page
 
 ## Test using curl
 
