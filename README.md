@@ -1,4 +1,4 @@
-#Setup
+# Setup
 
 1 - Install [Docker](https://docs.docker.com/install/)
 2 - Install [Docker compose](https://docs.docker.com/compose/install/)
@@ -31,7 +31,7 @@ rails s -b 0.0.0.0
 
 7 - Open your browser and access http://localhost:3000, you should see the rails default page
 
-#Testing using curl
+# Test using curl
 
 ```shellscript
 # Create
