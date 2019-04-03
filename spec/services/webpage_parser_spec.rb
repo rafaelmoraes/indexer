@@ -60,7 +60,7 @@ RSpec.describe WebpageParser do
         end
 
         context "when a header is child of an anchor" do
-          it "should crab the values correctly" do
+          it "should get the values correctly" do
             index = indexeds.select do |i|
               i if i[:link] == "https://url_from_a_with_child.com"
             end.first
@@ -71,7 +71,7 @@ RSpec.describe WebpageParser do
         end
 
         context "when a header is parent of an anchor" do
-          it "should crab the values correctly" do
+          it "should get the values correctly" do
             index = indexeds.select do |i|
               i if i[:link] == "https://url_from_h1.com"
             end.first
@@ -82,7 +82,7 @@ RSpec.describe WebpageParser do
         end
 
         context "when there are more than one header of the same kind" do
-          it "should crab all of them" do
+          it "should get all of them" do
             repeted_headers = indexeds.select { |i| i if i[:tag] == "h3" }
             expect(repeted_headers.size).to eq(2)
           end
