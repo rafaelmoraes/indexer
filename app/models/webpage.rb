@@ -15,7 +15,7 @@ class Webpage < ApplicationRecord
 
   protected
     def index_and_create_headers
-      WebpageParser.new(url).each_tag_indexable(*%w[h1 h2 h3]) do |indexable|
+      WebpageParser.new(url).each_tag_indexable(*Header::TAGS) do |indexable|
         headers.new indexable
       end
     end
