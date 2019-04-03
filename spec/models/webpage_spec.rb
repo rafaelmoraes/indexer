@@ -38,4 +38,22 @@ RSpec.describe Webpage, type: :model do
       end
     end
   end
+
+  describe ".create" do
+    before do
+      body = File.new("spec/fixtures/services/webpage_parser/my_mock.html")
+      stub_request(:get, "https://www.mymock.com")
+        .to_return(body: body, status: 200)
+    end
+
+    let(:webpage) { Webpage.create url: "https://www.mymock.com" }
+
+    it "#persisted? should be true" do
+      expect(webpage.persisted?).to be true
+    end
+
+    it "should have 5 headers" do
+      expect(webpage.headers.size).to eq(5)
+    end
+  end
 end
