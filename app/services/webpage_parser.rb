@@ -17,6 +17,7 @@ class WebpageParser
   end
 
   def each_tag_indexable(*css_selectors)
+    return [] unless page_found?
     css_selectors.each do |css_selector|
       @page.css(css_selector).each do |nokogiri_node|
         index = extract_indexable nokogiri_node
