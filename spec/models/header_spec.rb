@@ -24,11 +24,12 @@ RSpec.describe Header, type: :model do
     end
   end
 
-  describe "does have to create" do
+  describe "have to create" do
     before do
       stub_request(:get, "https://www.google.com/").to_return(status: 200)
       stub_request(:get, "https://www.bing.com/").to_return(status: 200)
     end
+
     context "when webpage, tag and link are present and text is blank" do
       it "#persisted? should be true" do
         header = Header.create(
@@ -39,6 +40,7 @@ RSpec.describe Header, type: :model do
         expect(header.persisted?).to be true
       end
     end
+
     context "when webpage, tag, link and text are present" do
       it "#persisted? should be true" do
         header = Header.create(
